@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        .inventory{
+        font-family: "Chewy", serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+    </style>
+</head>
+
+<h2 class="text-center inventory">Inventory Management</h2>
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Food</th>
+            <th>Category</th>
+            <th>Weight</th>
+            <th>Expiring Date</th>
+            <th>Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items|sort(attribute='expiration_date') %}
+        <tr class="{% if item.is_expired() %}table-danger{% elif item.is_near_expiry() %}table-warning{% endif %}">
+        <td><a href="{{ url_for('food_detail', food_id=item.id) }}">{{ item.name }}</a></td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.weight }} g</td>
+        <td>{{ item.expiration_date.strftime('%Y-%m-%d') }}</td>
+        <td>{{ item.calories }} kcal</td>
+    </tr>
+{% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}
