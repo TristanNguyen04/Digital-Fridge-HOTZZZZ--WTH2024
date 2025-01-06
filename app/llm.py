@@ -8,7 +8,7 @@ from typing import Optional, Any
 
 Number: TypeAlias = int | float
 
-GOOGLE_API_KEY = "AIzaSyDtQrDc1WkUJa_zE37JC9OB3KO_myqap4E"
+GOOGLE_API_KEY = "YOUR-API-KEY"
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
