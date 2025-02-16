@@ -218,4 +218,4 @@ The application should provide:
 - [Google Gemini API Documentation](https://cloud.google.com/ai-platform/)
 
 ## Link to Devpost
-- https://devpost.com/software/833070/joins/xCF0Vtmq8NORwo7xLBjcpg
+- [https://devpost.com/software/digital-fridge](https://devpost.com/software/digital-fridge)
